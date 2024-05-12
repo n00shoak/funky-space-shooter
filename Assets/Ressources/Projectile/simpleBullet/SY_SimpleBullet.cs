@@ -7,6 +7,7 @@ public class SY_SimpleBullet : MonoBehaviour
     
     private Rigidbody rb;
     private float maxLifettime, currentLifeTime;
+    [SerializeField] private GameObject deathfx;
     
     private void Awake()
     {
@@ -25,8 +26,7 @@ public class SY_SimpleBullet : MonoBehaviour
 
         if (currentLifeTime >= maxLifettime)
         {
-            StopAllCoroutines();
-            Destroy(gameObject);
+            destroyed();
         }
 
         // scale by time :
@@ -40,10 +40,21 @@ public class SY_SimpleBullet : MonoBehaviour
         StartCoroutine(lifeTime());
     }
     
+    public void destroyed()
+    {
+        GameObject fx = Instantiate(deathfx);
+        fx.transform.parent = null;
+        fx.transform.position = transform.position;
+        Debug.Log("OUI");
+        StopAllCoroutines();
+        Destroy(gameObject);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         collision.gameObject.GetComponent<SY_Health>().TakeDamage();
+
+        destroyed();
     }
     
 }

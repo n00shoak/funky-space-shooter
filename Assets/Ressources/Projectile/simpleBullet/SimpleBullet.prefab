@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5443723064846304eae124dca665ae23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathfx: {fileID: 5679333734877184561, guid: 981689c6a47d5fd46aedc717c930f8a4, type: 3}
 --- !u!96 &3801649998925812509
 TrailRenderer:
   serializedVersion: 3

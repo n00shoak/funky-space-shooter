@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 9088498062744328021}
   - component: {fileID: 4980426610928212252}
   - component: {fileID: 484608089164061376}
+  - component: {fileID: -6995219558324196377}
   m_Layer: 0
-  m_Name: DeathEffectA
+  m_Name: DeathEffectAsteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4853,3 +4854,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 1
+--- !u!114 &-6995219558324196377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5828834932364352046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7acc76da4c6e846a7a68a37d21925d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSpawn: {fileID: 8629092532595647055, guid: 94d21c9da7514f045b01922ddba03ece, type: 3}
+  ammoutMin: 1
+  ammoutMax: 3
