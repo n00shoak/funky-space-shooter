@@ -22,7 +22,6 @@ public class SY_ChargerBehavior : MonoBehaviour
     private void Update()
     {
         TargetPoint.transform.position = playerPosition.transform.position;
-        Debug.Log("dist = " + Vector3.Distance(transform.position, playerPosition.transform.position));
         if (Vector3.Distance(transform.position, playerPosition.transform.position)< ramDistance) // ram State
         {
 
