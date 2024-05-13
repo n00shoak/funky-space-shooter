@@ -7,12 +7,6 @@ public class SY_ShipMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private MN_Player manager;
 
-    public Camera mainCamera;
-
-    public KeyCode lockDir;
-    // public KeyCode strafeLeft;
-    // public KeyCode strafeRight;
-
     public void move()
     {
         if (rb.velocity.magnitude < manager.playerStats.MovementStats[0])

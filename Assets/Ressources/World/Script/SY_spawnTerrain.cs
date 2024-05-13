@@ -6,7 +6,7 @@ public class SY_spawnTerrain : MonoBehaviour
 {
     [SerializeField] private Transform palyer;
     [SerializeField] private float spawnRadiusMin, spawnRadiusMax;
-    [SerializeField] private GameObject asteroid;
+    [SerializeField] private GameObject[] tospawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +23,9 @@ public class SY_spawnTerrain : MonoBehaviour
         float x = palyer.position.x + Mathf.Cos(angle) * radius;
         float y = palyer.position.y + Mathf.Sin(angle) * radius;
 
-            GameObject stuff = Instantiate(asteroid,new Vector3(x,0,y), Quaternion.Euler(0f, Random.Range(0f, 360f), 0f));
+            GameObject stuff = Instantiate(tospawn[Random.Range(0, tospawn.Length)],new Vector3(x,0,y), Quaternion.Euler(0f, Random.Range(0f, 360f), 0f));
         stuff.transform.parent = null;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         StartCoroutine(spawnStuff());
     }
 

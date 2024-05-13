@@ -26,7 +26,7 @@ public class SY_experiencePoint : MonoBehaviour
 
     private IEnumerator goToPlayer()
     {
-        transform.position = Vector3.Lerp(transform.position, player.transform.position, 0.05f);
+        transform.position = Vector3.Lerp(transform.position, player.transform.position, 0.1f);
         yield return new WaitForSeconds(0.01f);
         StartCoroutine(goToPlayer());
     }
@@ -34,7 +34,16 @@ public class SY_experiencePoint : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         DT_Player playerData = collision.gameObject.GetComponent<DT_Player>();
-        if(playerData != null ) { playerData.xp += value; }
+        if(playerData != null ) 
+        { 
+            playerData.xp += value;
+            if(playerData.xp > 100)
+            {
+                playerData.xp -= 100;
+                playerData.level += 1;
+            }
+        }
+
         Destroy(gameObject);
     }
 }
