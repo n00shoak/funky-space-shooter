@@ -16,14 +16,10 @@ public class DT_Ship : MonoBehaviour
     [Header(" === base Health Stats === ")]
     [SerializeField] public float[] healthStats = new float[8];
     /*
-    0 = hp
+    0 = max hp
     1 = hp regen
     2 = timer before hp regen
     3 = hp armor
-    4 = shield ammount 
-    5 = shield armor 
-    6 = shield regen
-    7 = timer before shield regen
     */
 
     [Header(" === base Attack Stats === ")]

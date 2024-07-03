@@ -14,7 +14,6 @@ public class SY_SimpleBullet : MonoBehaviour
         maxLifettime = MN_GeneralManager.GetManagerfromGeneral<MN_Player>().playerStats.attackStats[5] + 1;
         rb = GetComponent<Rigidbody>();
         StartCoroutine(lifeTime());
-        Debug.Log("TEST" +  rb.velocity);
     }
     
 
@@ -26,7 +25,7 @@ public class SY_SimpleBullet : MonoBehaviour
 
         if (currentLifeTime >= maxLifettime)
         {
-            destroyed();
+            DestroyBullet();
         }
 
         // scale by time :
@@ -40,21 +39,21 @@ public class SY_SimpleBullet : MonoBehaviour
         StartCoroutine(lifeTime());
     }
     
-    public void destroyed()
+    public void DestroyBullet()
     {
         GameObject fx = Instantiate(deathfx);
         fx.transform.parent = null;
         fx.transform.position = transform.position;
-        Debug.Log("OUI");
         StopAllCoroutines();
         Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        collision.gameObject.GetComponent<SY_Health>().TakeDamage();
+        SY_Health getObjectHealth = collision.gameObject.GetComponent<SY_Health>();
+        if (getObjectHealth != null) { getObjectHealth.TakeDamage();   }
 
-        destroyed();
+        DestroyBullet();
     }
     
 }
